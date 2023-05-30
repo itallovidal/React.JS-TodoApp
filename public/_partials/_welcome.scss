@@ -1,0 +1,34 @@
+@use '../_partials/_index' as *;
+
+#container_welcome{
+    width: 70%;
+    background-color: $cor-2;
+
+    h1{
+        font-family: $fonte-2;
+        font-size: $font-tamanho-xgplus;
+        margin-block: 0;
+        font-weight: 400;
+    }
+    p{
+        margin-top: -$esp-p;
+        padding-bottom: $esp-p ;
+        font-size: $font-tamanho-p;
+
+        position: relative;
+    }
+
+    p:after{
+        @include afterDetail(5%)
+    }
+}
+
+#container_login{
+    width: 30%;
+    color: white;
+
+    h2{
+        margin-block: 0;
+        font-size: $font-tamanho-m;
+    }
+}

@@ -1,12 +1,13 @@
 import Aside from "./aside.jsx";
-import NewTask from "./newTask.jsx";
+import Welcome from "./Welcome.jsx";
 
 function App() {
 
   return (
     <>
-        <Aside/>
-        <NewTask/>
+        {/* <Aside/> */}
+        {/* <NewTask/> */}
+        <Welcome/>
     </>
   )
 }

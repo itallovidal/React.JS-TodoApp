@@ -1,8 +1,16 @@
 * {
   box-sizing: border-box;
   padding: 0;
+  max-height: -moz-fit-content;
   max-height: fit-content;
   font-family: "Lato", sans-serif;
+}
+
+body {
+  height: 100svh;
+  overflow: hidden;
+  margin: 0;
+  background-color: #222222;
 }
 
 #root {
@@ -11,8 +19,9 @@
 }
 
 main {
-  padding: 8%;
-  overflow: scroll;
+  padding: 5%;
+  overflow-y: scroll;
+  overflow-x: hidden;
   width: 75%;
 }
 
@@ -62,4 +71,37 @@ aside section:nth-child(-n+3):after {
   left: 0;
 }
 
-/*# sourceMappingURL=style.css.map */
+#container_welcome {
+  width: 70%;
+  background-color: #F0F0F0;
+}
+#container_welcome h1 {
+  font-family: "Big Shoulders Display", cursive;
+  font-size: 12.5rem;
+  margin-block: 0;
+  font-weight: 400;
+}
+#container_welcome p {
+  margin-top: -3%;
+  padding-bottom: 3%;
+  font-size: 1.5rem;
+  position: relative;
+}
+#container_welcome p:after {
+  position: absolute;
+  content: "";
+  height: 5px;
+  width: 5%;
+  background: #F45050;
+  bottom: 0;
+  left: 0;
+}
+
+#container_login {
+  width: 30%;
+  color: white;
+}
+#container_login h2 {
+  margin-block: 0;
+  font-size: 2rem;
+}

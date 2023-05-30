@@ -3,7 +3,7 @@
 aside{
   background: $cor-2;
   width: 25%;
-  padding: 1rem $esp-pequeno;
+  padding: 1rem $esp-p;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,12 +16,12 @@ aside{
   }
 
   button i{
-    margin-left: $esp-grande;
+    margin-left: $esp-g;
   }
 
   section{
-    margin-bottom: $esp-grande;
-    padding-bottom: $esp-grande;
+    margin-bottom: $esp-g;
+    padding-bottom: $esp-g;
     position: relative;
 
     button{
@@ -30,25 +30,18 @@ aside{
       outline: none;
       cursor: pointer;
       text-align: left;
-      padding: $esp-medio 0;
+      padding: $esp-m 0;
       border-radius: 10px;
       transition: 500ms;
     }
 
     button:hover{
-      padding-left: $esp-grande;
+      padding-left: $esp-g;
       color:$cor-3;
     }
   }
 
   section:nth-child(-n+3):after{
-    position: absolute;
-    content: '';
-    height: 5px;
-    width: 15%;
-    background: $cor-3;
-
-    bottom: 0;
-    left: 0;
+    @include afterDetail()
   }
 }
