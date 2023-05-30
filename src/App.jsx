@@ -5,9 +5,9 @@ function App() {
 
   return (
     <>
-        {/* <Aside/> */}
+        <Aside/>
         {/* <NewTask/> */}
-        <Welcome/>
+        {/* <Welcome/> */}
     </>
   )
 }

@@ -25,6 +25,29 @@ main {
   width: 75%;
 }
 
+.btn {
+  border: none;
+  outline: none;
+  padding: 3% 5%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 500ms;
+}
+
+.btn:hover {
+  background-color: #F45050;
+  color: white;
+}
+
+.fade-out {
+  animation: fadeOut 500ms forwards;
+}
+
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+  }
+}
 aside {
   background: #F0F0F0;
   width: 25%;
@@ -72,8 +95,11 @@ aside section:nth-child(-n+3):after {
 }
 
 #container_welcome {
-  width: 70%;
+  width: 60%;
   background-color: #F0F0F0;
+  align-items: start;
+  padding: 5%;
+  transition: 500ms;
 }
 #container_welcome h1 {
   font-family: "Big Shoulders Display", cursive;
@@ -98,10 +124,39 @@ aside section:nth-child(-n+3):after {
 }
 
 #container_login {
-  width: 30%;
+  width: 40%;
   color: white;
+  font-weight: 600;
+  transition: 500ms;
 }
 #container_login h2 {
   margin-block: 0;
-  font-size: 2rem;
+  padding-bottom: 3%;
+  margin-bottom: 3%;
+  font-size: 4.5rem;
+  position: relative;
+}
+#container_login h2:after {
+  position: absolute;
+  content: "";
+  height: 5px;
+  width: 15%;
+  background: #F45050;
+  bottom: 0;
+  left: 0;
+}
+#container_login p {
+  font-size: 1.5rem;
+  margin-block: 0;
+  margin-bottom: 5%;
+}
+#container_login input {
+  font-family: "Lato", sans-serif;
+  padding: 3%;
+  width: 40%;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-bottom: 5%;
+  display: block;
 }

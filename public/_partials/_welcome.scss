@@ -1,8 +1,11 @@
 @use '../_partials/_index' as *;
 
 #container_welcome{
-    width: 70%;
+    width: 60%;
     background-color: $cor-2;
+    align-items: start;
+    padding: $esp-m;
+    transition: 500ms;
 
     h1{
         font-family: $fonte-2;
@@ -10,11 +13,11 @@
         margin-block: 0;
         font-weight: 400;
     }
+
     p{
         margin-top: -$esp-p;
-        padding-bottom: $esp-p ;
+        padding-bottom: $esp-p;
         font-size: $font-tamanho-p;
-
         position: relative;
     }
 
@@ -24,11 +27,39 @@
 }
 
 #container_login{
-    width: 30%;
+    width: 40%;
     color: white;
+    font-weight: 600;
+    transition: 500ms;
+
 
     h2{
         margin-block: 0;
-        font-size: $font-tamanho-m;
+        padding-bottom: $esp-p;
+        margin-bottom: $esp-p;
+        font-size: $font-tamanho-xg;
+        position: relative;
+    }
+    
+    h2:after{
+        @include afterDetail()
+    }
+
+
+    p{
+        font-size: $font-tamanho-p;
+        margin-block: 0;
+        margin-bottom: $esp-m;
+    }
+
+    input{
+        font-family: $fonte-1;
+        padding: $esp-p;
+        width: 40%;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        margin-bottom: $esp-m;
+        display: block;
     }
 }

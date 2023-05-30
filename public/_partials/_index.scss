@@ -56,3 +56,27 @@ main{
   overflow-x: hidden;;
   width: 75%;
 }
+
+.btn{
+  border: none;
+  outline: none;
+  padding: $esp-p $esp-m;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 500ms;
+}
+
+.btn:hover{
+  background-color: $cor-3;
+  color: white;
+}
+
+.fade-out{
+  animation: fadeOut 500ms forwards;
+}
+
+@keyframes fadeOut {
+  100%{
+    opacity: 0;
+  }
+}
