@@ -1,0 +1,54 @@
+@use '../_partials/_index' as *;
+
+aside{
+  background: $cor-2;
+  width: 25%;
+  padding: 1rem $esp-pequeno;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+
+  h1{
+    font-family: $fonte-2;
+    font-size: 7rem;
+    margin: 0;
+  }
+
+  button i{
+    margin-left: $esp-grande;
+  }
+
+  section{
+    margin-bottom: $esp-grande;
+    padding-bottom: $esp-grande;
+    position: relative;
+
+    button{
+      width: 100%;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      text-align: left;
+      padding: $esp-medio 0;
+      border-radius: 10px;
+      transition: 500ms;
+    }
+
+    button:hover{
+      padding-left: $esp-grande;
+      color:$cor-3;
+    }
+  }
+
+  section:nth-child(-n+3):after{
+    position: absolute;
+    content: '';
+    height: 5px;
+    width: 15%;
+    background: $cor-3;
+
+    bottom: 0;
+    left: 0;
+  }
+}

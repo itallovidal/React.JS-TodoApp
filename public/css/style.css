@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  max-height: fit-content;
+  font-family: "Lato", sans-serif;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+}
+
+main {
+  padding: 8%;
+  overflow: scroll;
+  width: 75%;
+}
+
+aside {
+  background: #F0F0F0;
+  width: 25%;
+  padding: 1rem 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+aside h1 {
+  font-family: "Big Shoulders Display", cursive;
+  font-size: 7rem;
+  margin: 0;
+}
+aside button i {
+  margin-left: 8%;
+}
+aside section {
+  margin-bottom: 8%;
+  padding-bottom: 8%;
+  position: relative;
+}
+aside section button {
+  width: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 5% 0;
+  border-radius: 10px;
+  transition: 500ms;
+}
+aside section button:hover {
+  padding-left: 8%;
+  color: #F45050;
+}
+aside section:nth-child(-n+3):after {
+  position: absolute;
+  content: "";
+  height: 5px;
+  width: 15%;
+  background: #F45050;
+  bottom: 0;
+  left: 0;
+}
+
+/*# sourceMappingURL=style.css.map */

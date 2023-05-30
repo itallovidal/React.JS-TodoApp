@@ -1,0 +1,34 @@
+$fonte: 'Lato', sans-serif;
+$fonte-2: 'Big Shoulders Display', cursive;
+$font-tamanho-h1: 2.5rem;
+$font-tamanho-h2: 2rem;
+$font-tamanho-h3: 1rem;
+$font-tamanho-p1: .8rem;
+$font-tamanho-p2: .5rem;
+
+$cor-1: #222222;
+$cor-2: #F0F0F0;
+$cor-3: #F45050;
+$cor-4: #434242;
+
+$esp-grande: 8%;
+$esp-medio: 5%;
+$esp-pequeno: 3%;
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  max-height: fit-content;
+  font-family: $fonte;
+}
+
+#root{
+  height: 100vh;
+  display: flex;
+}
+
+main{
+  padding: $esp-grande;
+  overflow: scroll;
+  width: 75%;
+}
