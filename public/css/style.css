@@ -48,6 +48,15 @@ main {
     opacity: 0;
   }
 }
+.fade-in {
+  animation: fadeIn 500ms forwards;
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
 aside {
   background: #F0F0F0;
   width: 25%;
@@ -57,20 +66,23 @@ aside {
   align-items: center;
   height: 100%;
 }
-aside h1 {
+aside nav {
+  opacity: 0;
+}
+aside nav h1 {
   font-family: "Big Shoulders Display", cursive;
   font-size: 7rem;
   margin: 0;
 }
-aside button i {
+aside nav button i {
   margin-left: 8%;
 }
-aside section {
+aside nav section {
   margin-bottom: 8%;
   padding-bottom: 8%;
   position: relative;
 }
-aside section button {
+aside nav section button {
   width: 100%;
   border: none;
   outline: none;
@@ -80,11 +92,11 @@ aside section button {
   border-radius: 10px;
   transition: 500ms;
 }
-aside section button:hover {
+aside nav section button:hover {
   padding-left: 8%;
   color: #F45050;
 }
-aside section:nth-child(-n+3):after {
+aside nav section:nth-child(-n+4):after {
   position: absolute;
   content: "";
   height: 5px;
@@ -159,4 +171,9 @@ aside section:nth-child(-n+3):after {
   outline: none;
   margin-bottom: 5%;
   display: block;
+}
+
+#container_newTask {
+  color: white;
+  padding: 5%;
 }

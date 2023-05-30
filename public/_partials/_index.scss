@@ -80,3 +80,13 @@ main{
     opacity: 0;
   }
 }
+
+.fade-in{
+  animation: fadeIn 500ms forwards;
+}
+
+@keyframes fadeIn {
+  100%{
+    opacity: 1;
+  }
+}

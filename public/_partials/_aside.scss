@@ -9,39 +9,43 @@ aside{
   align-items: center;
   height: 100%;
 
-  h1{
-    font-family: $fonte-2;
-    font-size: 7rem;
-    margin: 0;
-  }
+  nav{
+    opacity: 0;
 
-  button i{
-    margin-left: $esp-g;
-  }
-
-  section{
-    margin-bottom: $esp-g;
-    padding-bottom: $esp-g;
-    position: relative;
-
-    button{
-      width: 100%;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      text-align: left;
-      padding: $esp-m 0;
-      border-radius: 10px;
-      transition: 500ms;
+    h1{
+      font-family: $fonte-2;
+      font-size: 7rem;
+      margin: 0;
     }
-
-    button:hover{
-      padding-left: $esp-g;
-      color:$cor-3;
+  
+    button i{
+      margin-left: $esp-g;
     }
-  }
-
-  section:nth-child(-n+3):after{
-    @include afterDetail()
+  
+    section{
+      margin-bottom: $esp-g;
+      padding-bottom: $esp-g;
+      position: relative;
+  
+      button{
+        width: 100%;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        text-align: left;
+        padding: $esp-m 0;
+        border-radius: 10px;
+        transition: 500ms;
+      }
+  
+      button:hover{
+        padding-left: $esp-g;
+        color:$cor-3;
+      }
+    }
+  
+    section:nth-child(-n+4):after{
+      @include afterDetail()
+    }
   }
 }

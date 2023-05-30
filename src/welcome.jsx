@@ -1,28 +1,33 @@
 import React from 'react';
 
-function login(){
-    const userName = document.querySelector('#userName').value
-    const articles = Array.from(document.querySelectorAll('article'))
-    const welcome = document.querySelector('#container_welcome')           
-    const login = document.querySelector('#container_login')           
+const Welcome = ({attPag}) => {
+    console.log(attPag)
 
+    function login(){
+        const userName = document.querySelector('#userName').value
+        const articles = Array.from(document.querySelectorAll('article'))
+        const welcome = document.querySelector('#container_welcome')           
+        const login = document.querySelector('#container_login')           
     
-    if(userName.length > 3){
-
-        console.log('logado')
-        console.log(articles)
-
-        articles.forEach(article => article.classList.add('fade-out'))
-
-        setTimeout(() => {
-            welcome.style.width = '25%'
-            login.style.width = '75%'
-        }, 501);
+        
+        if(userName.length > 3){
+            console.log('logado')
+    
+            articles.forEach(article => article.classList.add('fade-out'))
+    
+            setTimeout(() => {
+                welcome.style.width = '25%'
+                login.style.width = '75%'
+                
+                setTimeout(()=>{
+                    attPag(1)
+                }, 502)
+    
+            }, 501);
+        }
     }
-}
 
 
-const Welcome = () => {
     return (
         <>
 

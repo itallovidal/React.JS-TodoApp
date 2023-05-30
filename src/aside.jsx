@@ -3,8 +3,9 @@ import React from 'react';
 const Aside = ()=> {
     return (
         <aside>
+            <nav className='fade-in'>
             <h1> {'ToDo'} </h1>
-            <article>
+
                 <section>
                     <button>Criar Tarefa <i className="fa-solid fa-plus"></i></button>
                     <button>Home</button>
@@ -24,7 +25,7 @@ const Aside = ()=> {
                 <section>
                     <button>minha conta</button>
                 </section>
-            </article>
+            </nav>
         </aside>
     );
 };
