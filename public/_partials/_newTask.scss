@@ -3,6 +3,66 @@
 #container_newTask{
     color: white;
     padding: $esp-m;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
 
-    
+    h1{
+        font-size: $font-tamanho-xxg;
+        position: relative;
+        margin-block: $esp-p;
+        padding-bottom: $esp-p;
+    }
+
+    h1:after{
+        @include afterDetail()
+    }
+
+    section{
+        width: 80%;
+        h2{
+            font-weight: 400;
+            margin-bottom: $esp-pp;
+        }
+
+        input{
+            display: block;
+            margin-bottom: $esp-pp;
+        }
+
+        #customData{
+            display: inline;
+            cursor: pointer;
+        }
+
+        textarea{
+            resize: none;
+            width: 100%;
+            height: 15ch;
+        }
+
+        div{
+            display: flex;
+            gap: $esp-pp;
+
+            button, input{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    #btn_addTask{
+        margin-block: $esp-p;
+        padding: $esp-p;
+        width: 80%;
+        color: white;
+        background-color: $cor-1;
+        border: 2px solid $cor-3;
+    }
+
+    #btn_addTask:hover{
+        background-color: $cor-3;
+
+    }
 }

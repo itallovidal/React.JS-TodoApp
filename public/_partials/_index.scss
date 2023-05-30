@@ -20,6 +20,7 @@ $esp-xg: 12%;
 $esp-g: 8%;
 $esp-m: 5%;
 $esp-p: 3%;
+$esp-pp: 1.5%;
 
 @mixin afterDetail($width: 15%, $height: 5px){
   position: absolute;
@@ -57,13 +58,25 @@ main{
   width: 75%;
 }
 
+input, textarea{
+  font-family: $fonte-1;
+  padding: $esp-pp $esp-p;
+  width: 40%;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-bottom: $esp-m !important;
+  display: block;
+}
+
 .btn{
   border: none;
   outline: none;
-  padding: $esp-p $esp-m;
-  border-radius: 10px;
+  padding: $esp-pp $esp-p;
+  border-radius: 8px;
   cursor: pointer;
   transition: 500ms;
+  font-family: $fonte-1;
 }
 
 .btn:hover{

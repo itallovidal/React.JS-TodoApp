@@ -13,8 +13,9 @@ const Welcome = ({attPag}) => {
         if(userName.length > 3){
             console.log('logado')
     
+            localStorage.setItem('userName', userName)
             articles.forEach(article => article.classList.add('fade-out'))
-    
+            
             setTimeout(() => {
                 welcome.style.width = '25%'
                 login.style.width = '75%'
