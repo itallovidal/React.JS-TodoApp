@@ -4,13 +4,13 @@ import Welcome from "./Welcome.jsx";
 import NewTask from "./newTask.jsx";
 
 function checkUser(){
-  return localStorage.getItem(userName)
+  return localStorage.getItem('userName')
 }
 
 function App() {
   const [state, setState] = React.useState(0)
 
-  if(checkUser){
+  if(checkUser()){
       return (
         <>
             <Aside/>
