@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Welcome = ({attPag}) => {
-    console.log(attPag)
 
     function login(){
         const userName = document.querySelector('#userName').value

@@ -2,16 +2,18 @@
 
 #container_newTask{
     color: white;
-    padding: $esp-m;
+    padding: $esp-p;
     display: flex;
     flex-direction: column;
     opacity: 0;
+    overflow-y: scroll;
+    width: 75%;
 
     h1{
         font-size: $font-tamanho-xxg;
         position: relative;
-        margin-block: $esp-p;
-        padding-bottom: $esp-p;
+        margin-block: $esp-pp;
+        padding-bottom: $esp-pp;
     }
 
     h1:after{
@@ -19,7 +21,9 @@
     }
 
     section{
-        width: 80%;
+        width: 60%;
+        min-width: 500px;
+
         h2{
             font-weight: 400;
             margin-bottom: $esp-pp;
@@ -49,13 +53,34 @@
                 width: 100%;
                 height: 100%;
             }
+
+            input:not(#customData){
+                display: none;
+            }
+
+            label{
+                background-color: white;
+                color: black;
+                text-align: center;
+            }
+
+            .disabledLabel{
+                opacity: .2;
+            }
+
+            input:checked + label{
+                background-color: $cor-3;
+                color: white;
+            }
         }
     }
 
     #btn_addTask{
         margin-block: $esp-p;
-        padding: $esp-p;
-        width: 80%;
+        padding: $esp-pp;
+        width: 60%;
+        height: auto;
+        min-width: 500px;
         color: white;
         background-color: $cor-1;
         border: 2px solid $cor-3;
@@ -64,5 +89,21 @@
     #btn_addTask:hover{
         background-color: $cor-3;
 
+    }
+
+    #errorMsg{
+        margin-top: 0;
+        opacity: 0;
+        font-weight: 700;
+        transform: translateY(-200%);
+        animation: slide-Down 500ms forwards;
+    }
+}
+
+
+@keyframes slide-Down {
+    100%{
+        opacity: 1;
+        transform: translateY(0%);
     }
 }

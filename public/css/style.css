@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
   padding: 0;
-  max-height: -moz-fit-content;
   max-height: fit-content;
   font-family: "Lato", sans-serif;
 }
@@ -19,10 +18,12 @@ body {
 }
 
 main {
+  opacity: 0;
   padding: 5%;
   overflow-y: scroll;
   overflow-x: hidden;
   width: 75%;
+  animation: fadeIn 500ms forwards;
 }
 
 input, textarea {
@@ -44,11 +45,13 @@ input, textarea {
   cursor: pointer;
   transition: 500ms;
   font-family: "Lato", sans-serif;
+  width: 100%;
+  height: 100%;
 }
 
 .btn:hover {
-  background-color: #F45050;
-  color: white;
+  background-color: #F45050 !important;
+  color: white !important;
 }
 
 .fade-out {
@@ -61,7 +64,7 @@ input, textarea {
   }
 }
 .fade-in {
-  animation: fadeIn 500ms forwards;
+  animation: fadeIn 800ms forwards;
 }
 
 @keyframes fadeIn {
@@ -174,19 +177,24 @@ aside nav section:nth-child(-n+4):after {
   margin-block: 0;
   margin-bottom: 5%;
 }
+#container_login button {
+  width: auto;
+}
 
 #container_newTask {
   color: white;
-  padding: 5%;
+  padding: 3%;
   display: flex;
   flex-direction: column;
   opacity: 0;
+  overflow-y: scroll;
+  width: 75%;
 }
 #container_newTask h1 {
   font-size: 6rem;
   position: relative;
-  margin-block: 3%;
-  padding-bottom: 3%;
+  margin-block: 1.5%;
+  padding-bottom: 1.5%;
 }
 #container_newTask h1:after {
   position: absolute;
@@ -198,7 +206,8 @@ aside nav section:nth-child(-n+4):after {
   left: 0;
 }
 #container_newTask section {
-  width: 80%;
+  width: 60%;
+  min-width: 500px;
 }
 #container_newTask section h2 {
   font-weight: 400;
@@ -225,10 +234,27 @@ aside nav section:nth-child(-n+4):after {
   width: 100%;
   height: 100%;
 }
+#container_newTask section div input:not(#customData) {
+  display: none;
+}
+#container_newTask section div label {
+  background-color: white;
+  color: black;
+  text-align: center;
+}
+#container_newTask section div .disabledLabel {
+  opacity: 0.2;
+}
+#container_newTask section div input:checked + label {
+  background-color: #F45050;
+  color: white;
+}
 #container_newTask #btn_addTask {
   margin-block: 3%;
-  padding: 3%;
-  width: 80%;
+  padding: 1.5%;
+  width: 60%;
+  height: auto;
+  min-width: 500px;
   color: white;
   background-color: #222222;
   border: 2px solid #F45050;
@@ -236,3 +262,23 @@ aside nav section:nth-child(-n+4):after {
 #container_newTask #btn_addTask:hover {
   background-color: #F45050;
 }
+#container_newTask #errorMsg {
+  margin-top: 0;
+  opacity: 0;
+  font-weight: 700;
+  transform: translateY(-200%);
+  animation: slide-Down 500ms forwards;
+}
+
+@keyframes slide-Down {
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+#container_profile {
+  color: white;
+  font-size: xxx-large;
+}
+
+/*# sourceMappingURL=style.css.map */

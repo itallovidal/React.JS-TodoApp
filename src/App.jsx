@@ -2,24 +2,35 @@ import React from "react";
 import Aside from "./aside.jsx";
 import Welcome from "./Welcome.jsx";
 import NewTask from "./newTask.jsx";
+import Profile from "./Profile.jsx";
 
 function checkUser(){
   return localStorage.getItem('userName')
 }
 
 function App() {
-  const [state, setState] = React.useState(0)
+    const [state, setState] = React.useState(null)
+    const pages = [
+        <Welcome attPag={setState}/>,
+        <NewTask attPag={setState}/>,
+        <Profile/>,
+    ]
 
-  if(checkUser()){
-      return (
+    React.useEffect(()=>{
+        if(checkUser() !== null){
+            setState(1)
+        }
+        else{
+            setState(0)
+        }
+    }, [])
+
+    return (
         <>
-            <Aside/>
-            <NewTask/>
+            {state && <Aside/>}
+            {pages[state]}
         </>
-        )
-    }else{
-      return <Welcome attPag={setState}/>
-    }
+    )
 }
 
 export default App
