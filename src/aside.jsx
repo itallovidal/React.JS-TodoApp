@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Aside = ()=> {
+const Aside = ({attPag})=> {
     return (
         <aside>
             <nav className='fade-in'>
             <h1> {'ToDo'} </h1>
 
                 <section>
-                    <button>Criar Tarefa <i className="fa-solid fa-plus"></i></button>
+                    <button onClick={()=> attPag(1)}>Criar Tarefa <i className="fa-solid fa-plus"></i></button>
                     <button>Home</button>
                 </section>
                 <section>
@@ -23,7 +23,7 @@ const Aside = ()=> {
                     <button>Lazer</button>
                 </section>
                 <section>
-                    <button>minha conta</button>
+                    <button onClick={()=> attPag(2)}>minha conta</button>
                 </section>
             </nav>
         </aside>

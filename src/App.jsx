@@ -27,7 +27,7 @@ function App() {
 
     return (
         <>
-            {state && <Aside/>}
+            {state && <Aside attPag={setState}/>}
             {pages[state]}
         </>
     )

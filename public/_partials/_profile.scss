@@ -1,6 +1,27 @@
 @use '../_partials/_index' as *;
 
 #container_profile{
-  color: white;
-  font-size: xxx-large;
+  @include contentConfig;
+
+  button{
+    width: auto;
+    height: auto;
+  }
+
+  #userName{
+    margin-bottom: $esp-pp !important;
+  }
+
+  #container_newName{
+    margin-top: $esp-p;
+    position: relative;
+    margin-bottom: $esp-p;
+    padding-bottom: $esp-p;
+  }
+
+  #container_newName:after{
+    @include afterDetail();
+  }
+
 }
+

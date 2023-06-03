@@ -22,7 +22,7 @@ $esp-m: 5%;
 $esp-p: 3%;
 $esp-pp: 1.5%;
 
-@mixin afterDetail($width: 15%, $height: 5px){
+@mixin afterDetail($width: 8%, $height: 5px){
   position: absolute;
   content: '';
   height: $height;
@@ -51,13 +51,27 @@ body{
   display: flex;
 }
 
-main{
-  opacity: 0;
-  padding: $esp-m;
-  overflow-y: scroll;
-  overflow-x: hidden;;
-  width: 75%;
+@mixin contentConfig{
+  overflow-x: hidden;
   animation: fadeIn 500ms forwards;
+  color: white;
+  padding: $esp-p;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  overflow-y: scroll;
+  width: 75%;
+
+  h1{
+    font-size: $font-tamanho-xxg;
+    position: relative;
+    margin-block: $esp-pp;
+    padding-bottom: $esp-pp;
+  }
+
+  h1:after{
+    @include afterDetail()
+  }
 }
 
 input, textarea{

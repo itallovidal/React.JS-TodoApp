@@ -1,24 +1,7 @@
 @use '../_partials/_index' as *;
 
 #container_newTask{
-    color: white;
-    padding: $esp-p;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    overflow-y: scroll;
-    width: 75%;
-
-    h1{
-        font-size: $font-tamanho-xxg;
-        position: relative;
-        margin-block: $esp-pp;
-        padding-bottom: $esp-pp;
-    }
-
-    h1:after{
-        @include afterDetail()
-    }
+    @include contentConfig;
 
     section{
         width: 60%;
