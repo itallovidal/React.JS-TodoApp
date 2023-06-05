@@ -68,6 +68,9 @@ const Tasks = ({ categoryFilter, searchFilter, setSearch, completedFilter }) =>{
         )
     }
 
+    let filtro = categoryFilter !== null ? categoryFilter : 'Sem filtro'
+    filtro = completedFilter !== null ? 'Tarefas Concluídas' : filtro
+
     if(tasks !== null) {
         tasks = JSON.parse(tasks)
 
@@ -76,7 +79,7 @@ const Tasks = ({ categoryFilter, searchFilter, setSearch, completedFilter }) =>{
                 <h1>Tarefas</h1>
 
                 <article id='container_filter'>
-                    <p> Filtro: <span style={{color: '#F45050', fontWeight: 'Bolder'}}> {categoryFilter !== null ? categoryFilter : 'Sem filtro'}</span> </p>
+                    <p> Filtro: <span style={{color: '#F45050', fontWeight: 'Bolder'}}> {filtro}</span> </p>
                     <div>
                         <input id='searchBar' placeholder='Pesquise sua tarefa' type="text"/>
                         <button onClick={()=>{
