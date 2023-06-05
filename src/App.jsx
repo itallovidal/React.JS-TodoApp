@@ -13,12 +13,13 @@ function App() {
     const [state, setState] = React.useState(null)
     const [categoryFilter, setCategoryFilter] = React.useState(null)
     const [searchFilter, setSearch] = React.useState(null)
+    const [completedFilter, setCompletedFilter] = React.useState(null)
 
     const pages = [
         <Welcome attPag={setState}/>,
         <NewTask attPag={setState}/>,
         <Profile/>,
-        <Tasks categoryFilter={categoryFilter} searchFilter={searchFilter} setSearch={setSearch}/>
+        <Tasks categoryFilter={categoryFilter} searchFilter={searchFilter} setSearch={setSearch} completedFilter={completedFilter}/>
     ]
 
     React.useEffect(()=>{
@@ -32,7 +33,7 @@ function App() {
 
     return (
         <>
-            {state > 0 ? <Aside setCategoryFilter={setCategoryFilter} attPag={setState} setSearch={setSearch}/> : null}
+            {state > 0 ? <Aside setCategoryFilter={setCategoryFilter} attPag={setState} setSearch={setSearch} setCompletedFilter={setCompletedFilter}/> : null}
             {pages[state]}
         </>
     )

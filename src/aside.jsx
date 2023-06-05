@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Aside = ({attPag, setCategoryFilter, setSearch})=> {
+const Aside = ({attPag, setCategoryFilter, setSearch, setCompletedFilter })=> {
     return (
         <aside>
             <nav className='fade-in'>
@@ -11,13 +11,18 @@ const Aside = ({attPag, setCategoryFilter, setSearch})=> {
                     <button>Home</button>
                 </section>
                 <section>
-                    <button>Concluídas</button>
-                    <button>Vencidas</button>
+                    <button onClick={()=>{
+                        attPag(3)
+                        setCategoryFilter(null)
+                        setSearch(null)
+                        setCompletedFilter(true)
+                    }}>Concluídas</button>
                     <button onClick={()=> {
                         attPag(3)
                         setCategoryFilter(null)
                         setSearch(null)
-                    }}>Tarefas</button>
+                        setCompletedFilter(null)
+                    }}>Lista de Tarefas</button>
                 </section>
 
                 <section>
@@ -25,24 +30,28 @@ const Aside = ({attPag, setCategoryFilter, setSearch})=> {
                         attPag(3)
                         setCategoryFilter('Casa')
                         setSearch(null)
+                        setCompletedFilter(null)
                     }}>Casa</button>
 
                     <button onClick={()=>{
                         attPag(3)
                         setCategoryFilter('Trabalho')
                         setSearch(null)
+                        setCompletedFilter(null)
                     }}>Trabalho</button>
 
                     <button onClick={()=>{
                         attPag(3)
                         setCategoryFilter('Estudo')
                         setSearch(null)
+                        setCompletedFilter(null)
                     }}>Estudo</button>
 
                     <button onClick={()=>{
                         attPag(3)
                         setCategoryFilter('Lazer')
                         setSearch(null)
+                        setCompletedFilter(null)
                     }}>Lazer</button>
                 </section>
                 <section>

@@ -29,7 +29,7 @@ function check(){
         return 'Marque a categoria, por favor'
     }
 
-    return {taskName, taskDesc, taskTime, taskCategory }
+    return {taskName, taskDesc, taskTime, taskCategory, completed: false}
 }
 
 const NewTask = ({attPag}) => {
@@ -54,7 +54,6 @@ const NewTask = ({attPag}) => {
 
             attPag(3)
         }
-
     }
 
     function resetDate(){

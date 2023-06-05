@@ -7,39 +7,66 @@ function openDesc(e){
     p.classList.toggle('changeHeight')
 }
 
+function changeTaskStatus(tasks, el, ){
+    const name = el.previousSibling.previousSibling.innerText
 
-function showTasks(tasks, categoryFilter = null, searchFilter = null){
+    tasks.forEach((task)=>{
+        console.log(task.taskName)
 
-    if(categoryFilter !== null) {
-        tasks = tasks.filter((task)=>{
-            return task.taskCategory === categoryFilter
-        })
-    }
+        if(task.taskName === name){
+            console.log('acho!')
+            task.completed = !task.completed
+        }
+    })
 
-    if(searchFilter !== null){
-        tasks = tasks.filter((task)=>{
-            return task.taskName === searchFilter
-        })
-    }
-
-    return (
-        tasks.map((task, i)=>{
-            return <div key={i} className='task'>
-                <h3> {task.taskName} </h3>
-
-                <p>{task.taskDesc}</p>
-                <button className='btn'>Completar</button>
-                <div className='footer'>
-                    <span>{task.taskCategory}</span>
-                    <button className='fas fa-chevron-down' onClick={(e)=>{openDesc(e)}}></button>
-                </div>
-            </div>
-        })
-    )
+    localStorage.setItem('tasks', JSON.stringify(tasks) )
 }
-const Tasks = ({categoryFilter, searchFilter, setSearch }) =>{
+
+const Tasks = ({ categoryFilter, searchFilter, setSearch, completedFilter }) =>{
+    const [taskStatus, setTaskStatus] = React.useState(false)
     let tasks = localStorage.getItem('tasks')
-    console.log(searchFilter)
+
+    function showTasks(tasks, categoryFilter = null, searchFilter = null){
+
+        if(categoryFilter !== null) {
+            tasks = tasks.filter((task)=>{
+                return task.taskCategory === categoryFilter
+            })
+        }
+
+        if(searchFilter !== null){
+            tasks = tasks.filter((task)=>{
+                return task.taskName === searchFilter
+            })
+        }
+
+        if(completedFilter !== null){
+            tasks = tasks.filter((task)=>{
+                return task.completed === true
+            })
+        }
+
+        return (
+            tasks.map((task, i)=>{
+                return <div key={i} className='task'>
+                    <h3> {task.taskName} </h3>
+
+                    <p>{task.taskDesc} <br/> <br/> Data Limite:  <span style={{color: '#F45050', fontWeight: 'Bolder'}} className='taskLimitDate'> {task.taskTime}</span></p>
+                    <button onClick={(e)=>{
+                        changeTaskStatus(tasks, e.target)
+                        setTaskStatus(!taskStatus)
+
+                    }}  className={`btn ${task.completed && 'completed fa-solid fa-circle-check'}`  }>
+                        {task.completed === true ? null : "Completar" }
+                    </button>
+                    <div className='footer'>
+                        <span>{task.taskCategory}</span>
+                        <button className='fas fa-chevron-down' onClick={(e)=>{openDesc(e)}}></button>
+                    </div>
+                </div>
+            })
+        )
+    }
 
     if(tasks !== null) {
         tasks = JSON.parse(tasks)

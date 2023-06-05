@@ -15,9 +15,6 @@ const Profile = () =>{
                 <p>Apagar Todas as Tarefas</p>
                 <button className='btn'>Apagar</button>
 
-                <p>Apagar Tarefas Vencidas</p>
-                <button className='btn'>Apagar</button>
-
                 <p>Apagar Tarefas Completadas</p>
                 <button className='btn'>Apagar</button>
             </article>
