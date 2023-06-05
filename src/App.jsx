@@ -4,6 +4,7 @@ import Welcome from "./Welcome.jsx";
 import NewTask from "./newTask.jsx";
 import Profile from "./Profile.jsx";
 import Tasks from "./Tasks.jsx";
+import Home from "./home.jsx";
 
 function checkUser(){
   return localStorage.getItem('userName')
@@ -15,16 +16,35 @@ function App() {
     const [searchFilter, setSearch] = React.useState(null)
     const [completedFilter, setCompletedFilter] = React.useState(null)
 
+    const changePage = function (
+        pag,
+        category = null,
+        search = null,
+        completed = null){
+        setState(pag)
+        setCategoryFilter(category)
+        setSearch(search)
+        setCompletedFilter(completed)
+    }
+
+    const filters = {
+        categoryFilter,
+        searchFilter,
+        completedFilter
+    }
+
     const pages = [
         <Welcome attPag={setState}/>,
         <NewTask attPag={setState}/>,
         <Profile/>,
-        <Tasks categoryFilter={categoryFilter} searchFilter={searchFilter} setSearch={setSearch} completedFilter={completedFilter}/>
+        <Tasks filters={filters} setSearch={setSearch} />,
+        <Home changePage={changePage}/>
     ]
+
 
     React.useEffect(()=>{
         if(checkUser() !== null){
-            setState(3)
+            setState(4)
         }
         else{
             setState(0)
@@ -33,7 +53,7 @@ function App() {
 
     return (
         <>
-            {state > 0 ? <Aside setCategoryFilter={setCategoryFilter} attPag={setState} setSearch={setSearch} setCompletedFilter={setCompletedFilter}/> : null}
+            {state > 0 ? <Aside changePage={changePage}/> : null}
             {pages[state]}
         </>
     )

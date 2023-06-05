@@ -1,61 +1,47 @@
 import React from 'react';
 
-const Aside = ({attPag, setCategoryFilter, setSearch, setCompletedFilter })=> {
+const Aside = ({changePage})=> {
     return (
         <aside>
             <nav className='fade-in'>
             <h1> {'ToDo'} </h1>
 
                 <section>
-                    <button onClick={()=> attPag(1)}>Criar Tarefa <i className="fa-solid fa-plus"></i></button>
-                    <button>Home</button>
+                    <button onClick={()=> changePage(1)}>Criar Tarefa <i className="fa-solid fa-plus"></i></button>
+                    <button onClick={()=>{
+                        changePage(4, 'Estudo')
+                    }}>Home</button>
                 </section>
                 <section>
                     <button onClick={()=>{
-                        attPag(3)
-                        setCategoryFilter(null)
-                        setSearch(null)
-                        setCompletedFilter(true)
+                        changePage(3,null,null,true)
+
                     }}>Concluídas</button>
+
                     <button onClick={()=> {
-                        attPag(3)
-                        setCategoryFilter(null)
-                        setSearch(null)
-                        setCompletedFilter(null)
+                        changePage(3)
                     }}>Lista de Tarefas</button>
                 </section>
 
                 <section>
                     <button onClick={()=>{
-                        attPag(3)
-                        setCategoryFilter('Casa')
-                        setSearch(null)
-                        setCompletedFilter(null)
+                        changePage(3, 'Casa')
                     }}>Casa</button>
 
                     <button onClick={()=>{
-                        attPag(3)
-                        setCategoryFilter('Trabalho')
-                        setSearch(null)
-                        setCompletedFilter(null)
+                        changePage(3, 'Trabalho')
                     }}>Trabalho</button>
 
                     <button onClick={()=>{
-                        attPag(3)
-                        setCategoryFilter('Estudo')
-                        setSearch(null)
-                        setCompletedFilter(null)
+                        changePage(3, 'Estudo')
                     }}>Estudo</button>
 
                     <button onClick={()=>{
-                        attPag(3)
-                        setCategoryFilter('Lazer')
-                        setSearch(null)
-                        setCompletedFilter(null)
+                        changePage(3, 'Lazer')
                     }}>Lazer</button>
                 </section>
                 <section>
-                    <button onClick={()=> attPag(2)}>minha conta</button>
+                    <button onClick={()=> changePage(2)}>minha conta</button>
                 </section>
             </nav>
         </aside>

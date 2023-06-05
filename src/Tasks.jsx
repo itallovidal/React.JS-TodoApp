@@ -22,7 +22,7 @@ function changeTaskStatus(tasks, el, ){
     localStorage.setItem('tasks', JSON.stringify(tasks) )
 }
 
-const Tasks = ({ categoryFilter, searchFilter, setSearch, completedFilter }) =>{
+const Tasks = ({ filters, setSearch}) =>{
     const [taskStatus, setTaskStatus] = React.useState(false)
     let tasks = localStorage.getItem('tasks')
 
@@ -40,7 +40,7 @@ const Tasks = ({ categoryFilter, searchFilter, setSearch, completedFilter }) =>{
             })
         }
 
-        if(completedFilter !== null){
+        if(filters.completedFilter !== null){
             tasks = tasks.filter((task)=>{
                 return task.completed === true
             })
@@ -68,8 +68,8 @@ const Tasks = ({ categoryFilter, searchFilter, setSearch, completedFilter }) =>{
         )
     }
 
-    let filtro = categoryFilter !== null ? categoryFilter : 'Sem filtro'
-    filtro = completedFilter !== null ? 'Tarefas Concluídas' : filtro
+    let filtro = filters.categoryFilter !== null ? filters.categoryFilter : 'Sem filtro'
+    filtro = filters.completedFilter !== null ? 'Tarefas Concluídas' : filtro
 
     if(tasks !== null) {
         tasks = JSON.parse(tasks)
@@ -89,7 +89,7 @@ const Tasks = ({ categoryFilter, searchFilter, setSearch, completedFilter }) =>{
                 </article>
 
                 <article id='container_taskResult'>
-                    {showTasks(tasks, categoryFilter, searchFilter)}
+                    {showTasks(tasks, filters.categoryFilter, filters.searchFilter)}
                 </article>
             </main>
         )

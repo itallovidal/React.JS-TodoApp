@@ -1,0 +1,94 @@
+@use '../_partials/_index' as *;
+
+#container_home{
+  @include contentConfig;
+  color: white;
+  padding: 0;
+
+  h1, article{
+    padding-inline: $esp-m;
+  }
+
+  h1:after{
+    left: $esp-m;
+  }
+
+  p{
+    font-size: $font-tamanho-p;
+    margin-block: $esp-pp;
+  }
+
+  .container_tasks{
+    display: flex;
+    flex-wrap: wrap;
+    gap: $esp-p;
+  }
+
+  #container_01,
+  #container_03,
+  #container_04,
+  #container_05,
+  #container_lastTasks,
+  #container_HomeTasks{
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+
+  #container_lastTasks,
+  #container_HomeTasks,
+  #container_JobTasks,
+  #container_StudyTasks
+  {
+    h2{
+      font-size: $font-tamanho-p;
+      width: 100%;
+    }
+
+    .container_tasks{
+      width: 100%;
+
+      .task{
+        width: 45%;
+        margin-bottom: $esp-p;
+        padding: $esp-pp !important;
+        @include taskConfig;
+
+        .footer{
+          margin-top: $esp-g;
+        }
+        @include taskConfig2;
+      }
+    }
+  }
+  }
+
+  #container_01{
+    #container_lastTasks{
+      width: 60%;
+  }
+}
+
+
+#container_HomeTasks,
+#container_JobTasks,
+#container_StudyTasks
+{
+  width: 100%;
+}
+
+#container_04{
+  background-color: $cor-4;
+}
+
+.wrapper{
+  .Lazer, .Casa,
+  .Trabalho, .Estudo {
+    width: 20% !important;
+    min-height: 165px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -390,17 +390,39 @@ aside nav section:nth-child(-n+4):after {
   margin: 1.5%;
   width: 30%;
   height: max-content;
-  background: white;
-  border-radius: 10px;
-  color: black;
   padding: 3%;
+  background: white;
+  color: black;
   opacity: 0;
   animation: fadeIn 800ms forwards;
+  border-radius: 10px;
 }
 #container_tasks #container_taskResult .task h3 {
   margin-block: 1%;
   text-align: center;
   font-weight: bold;
+}
+#container_tasks #container_taskResult .task .footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+#container_tasks #container_taskResult .task .footer button {
+  border: none;
+  outline: none;
+  color: black;
+  background: none;
+  padding: 3%;
+  cursor: pointer;
+}
+#container_tasks #container_taskResult .task .footer span {
+  background: #F45050;
+  padding: 3%;
+  border-radius: 8px;
+  color: white;
+  width: 45%;
+  text-align: center;
 }
 #container_tasks #container_taskResult .task p {
   font-size: 1rem;
@@ -445,13 +467,114 @@ aside nav section:nth-child(-n+4):after {
 #container_tasks #container_taskResult .task .rotate {
   transform: rotateY(150deg) rotateX(180deg);
 }
-#container_tasks #container_taskResult .task .footer {
+
+#container_home {
+  overflow-x: hidden;
+  animation: fadeIn 500ms forwards;
+  color: white;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  overflow-y: scroll;
+  width: 75%;
+  color: white;
+  padding: 0;
+}
+#container_home h1 {
+  font-size: 6rem;
+  position: relative;
+  margin-block: 1.5%;
+  padding-bottom: 1.5%;
+}
+#container_home h1:after {
+  position: absolute;
+  content: "";
+  height: 5px;
+  width: 8%;
+  background: #F45050;
+  bottom: 0;
+  left: 0;
+}
+#container_home h1, #container_home article {
+  padding-inline: 5%;
+}
+#container_home h1:after {
+  left: 5%;
+}
+#container_home p {
+  font-size: 1.5rem;
+  margin-block: 1.5%;
+}
+#container_home .container_tasks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3%;
+}
+#container_home #container_01,
+#container_home #container_03,
+#container_home #container_04,
+#container_home #container_05,
+#container_home #container_lastTasks,
+#container_home #container_HomeTasks {
+  display: flex;
+  flex-wrap: wrap;
+}
+#container_home #container_lastTasks h2,
+#container_home #container_HomeTasks h2,
+#container_home #container_JobTasks h2,
+#container_home #container_StudyTasks h2 {
+  font-size: 1.5rem;
+  width: 100%;
+}
+#container_home #container_lastTasks .container_tasks,
+#container_home #container_HomeTasks .container_tasks,
+#container_home #container_JobTasks .container_tasks,
+#container_home #container_StudyTasks .container_tasks {
+  width: 100%;
+}
+#container_home #container_lastTasks .container_tasks .task,
+#container_home #container_HomeTasks .container_tasks .task,
+#container_home #container_JobTasks .container_tasks .task,
+#container_home #container_StudyTasks .container_tasks .task {
+  width: 45%;
+  margin-bottom: 3%;
+  padding: 1.5% !important;
+  height: max-content;
+  padding: 3%;
+  background: white;
+  color: black;
+  opacity: 0;
+  animation: fadeIn 800ms forwards;
+  border-radius: 10px;
+}
+#container_home #container_lastTasks .container_tasks .task .footer,
+#container_home #container_HomeTasks .container_tasks .task .footer,
+#container_home #container_JobTasks .container_tasks .task .footer,
+#container_home #container_StudyTasks .container_tasks .task .footer {
+  margin-top: 8%;
+}
+#container_home #container_lastTasks .container_tasks .task h3,
+#container_home #container_HomeTasks .container_tasks .task h3,
+#container_home #container_JobTasks .container_tasks .task h3,
+#container_home #container_StudyTasks .container_tasks .task h3 {
+  margin-block: 1%;
+  text-align: center;
+  font-weight: bold;
+}
+#container_home #container_lastTasks .container_tasks .task .footer,
+#container_home #container_HomeTasks .container_tasks .task .footer,
+#container_home #container_JobTasks .container_tasks .task .footer,
+#container_home #container_StudyTasks .container_tasks .task .footer {
   display: flex;
   justify-content: space-between;
   width: 100%;
   align-items: center;
 }
-#container_tasks #container_taskResult .task .footer button {
+#container_home #container_lastTasks .container_tasks .task .footer button,
+#container_home #container_HomeTasks .container_tasks .task .footer button,
+#container_home #container_JobTasks .container_tasks .task .footer button,
+#container_home #container_StudyTasks .container_tasks .task .footer button {
   border: none;
   outline: none;
   color: black;
@@ -459,13 +582,40 @@ aside nav section:nth-child(-n+4):after {
   padding: 3%;
   cursor: pointer;
 }
-#container_tasks #container_taskResult .task .footer span {
+#container_home #container_lastTasks .container_tasks .task .footer span,
+#container_home #container_HomeTasks .container_tasks .task .footer span,
+#container_home #container_JobTasks .container_tasks .task .footer span,
+#container_home #container_StudyTasks .container_tasks .task .footer span {
   background: #F45050;
   padding: 3%;
   border-radius: 8px;
   color: white;
   width: 45%;
   text-align: center;
+}
+
+#container_01 #container_lastTasks {
+  width: 60%;
+}
+
+#container_HomeTasks,
+#container_JobTasks,
+#container_StudyTasks {
+  width: 100%;
+}
+
+#container_04 {
+  background-color: #434242;
+}
+
+.wrapper .Lazer, .wrapper .Casa,
+.wrapper .Trabalho, .wrapper .Estudo {
+  width: 20% !important;
+  min-height: 165px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */

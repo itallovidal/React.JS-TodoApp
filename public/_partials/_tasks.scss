@@ -49,22 +49,15 @@
     flex-wrap: wrap;
     margin-top: $esp-m;
 
+
+
     .task{
       margin: $esp-pp;
       width: 30%;
-      height: max-content;
-      background: white;
-      border-radius: 10px;
-      color: black;
-      padding: $esp-p;
-      opacity: 0;
-      animation: fadeIn 800ms forwards;
+      @include taskConfig;
 
-      h3{
-        margin-block: 1%;
-        text-align: center;
-        font-weight: bold;
-      }
+      @include taskConfig2;
+
       p{
         font-size: $font-tamanho-pp;
         line-height: 1.5;
@@ -116,30 +109,6 @@
                     rotateX(180deg);
       }
 
-      .footer{
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        align-items: center;
-
-        button{
-          border: none;
-          outline: none;
-          color: black;
-          background: none;
-          padding: $esp-p;
-          cursor: pointer;
-        }
-
-        span{
-          background: $cor-3;
-          padding: $esp-p;
-          border-radius: 8px;
-          color: white;
-          width: 45%;
-          text-align: center;
-        }
-      }
     }
   }
 }
