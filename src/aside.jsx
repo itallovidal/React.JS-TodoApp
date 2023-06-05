@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Aside = ({attPag})=> {
+const Aside = ({attPag, setCategoryFilter, setSearch})=> {
     return (
         <aside>
             <nav className='fade-in'>
@@ -13,14 +13,37 @@ const Aside = ({attPag})=> {
                 <section>
                     <button>Concluídas</button>
                     <button>Vencidas</button>
-                    <button>Tarefas</button>
+                    <button onClick={()=> {
+                        attPag(3)
+                        setCategoryFilter(null)
+                        setSearch(null)
+                    }}>Tarefas</button>
                 </section>
 
                 <section>
-                    <button>Casas</button>
-                    <button>Trabalho</button>
-                    <button>Estudo</button>
-                    <button>Lazer</button>
+                    <button onClick={()=>{
+                        attPag(3)
+                        setCategoryFilter('Casa')
+                        setSearch(null)
+                    }}>Casa</button>
+
+                    <button onClick={()=>{
+                        attPag(3)
+                        setCategoryFilter('Trabalho')
+                        setSearch(null)
+                    }}>Trabalho</button>
+
+                    <button onClick={()=>{
+                        attPag(3)
+                        setCategoryFilter('Estudo')
+                        setSearch(null)
+                    }}>Estudo</button>
+
+                    <button onClick={()=>{
+                        attPag(3)
+                        setCategoryFilter('Lazer')
+                        setSearch(null)
+                    }}>Lazer</button>
                 </section>
                 <section>
                     <button onClick={()=> attPag(2)}>minha conta</button>

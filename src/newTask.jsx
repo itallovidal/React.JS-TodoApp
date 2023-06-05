@@ -43,13 +43,24 @@ const NewTask = ({attPag}) => {
         if (typeof verification ===  "string") {
             setErrorMsg(verification)
         } else {
-            attPag(2)
+            if(localStorage.getItem('tasks') !== null){
+                let tasks = JSON.parse(localStorage.getItem('tasks'))
+                tasks.push(verification)
+                localStorage.setItem('tasks', JSON.stringify(tasks))
+            }else{
+                let tasks = [verification]
+                localStorage.setItem('tasks', JSON.stringify(tasks))
+            }
+
+            attPag(3)
         }
 
     }
 
     function resetDate(){
-        document.querySelector('input[name=taskTime]:checked').checked = false
+        const date = document.querySelector('input[name=taskTime]:checked')
+
+        date !== null ? date.checked = false : null
         setCustomDate(true)
     }
 
