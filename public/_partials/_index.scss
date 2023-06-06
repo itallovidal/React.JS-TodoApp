@@ -26,6 +26,13 @@ canvas{
   cursor: pointer;
 }
 
+
+@media (max-width: 1050px){
+  *{
+    display: none !important;
+  }
+}
+
 @mixin afterDetail($width: 8%, $height: 5px){
   position: absolute;
   content: '';

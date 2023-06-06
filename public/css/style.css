@@ -2,6 +2,11 @@ canvas {
   cursor: pointer;
 }
 
+@media (max-width: 1050px) {
+  * {
+    display: none !important;
+  }
+}
 * {
   box-sizing: border-box;
   padding: 0;
