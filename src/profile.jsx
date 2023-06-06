@@ -1,5 +1,4 @@
 import React from 'react';
-import tasks from "./Tasks.jsx";
 
 function deleteTasks(filter = null){
     if(filter === null){

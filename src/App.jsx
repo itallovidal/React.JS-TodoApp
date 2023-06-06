@@ -1,9 +1,9 @@
 import React from "react";
 import Aside from "./aside.jsx";
-import Welcome from "./Welcome.jsx";
+import Welcome from "./welcome.jsx";
 import NewTask from "./newTask.jsx";
-import Profile from "./Profile.jsx";
-import Tasks from "./Tasks.jsx";
+import Profile from "./profile.jsx";
+import Tasks from "./tasks.jsx";
 import Home from "./home.jsx";
 
 
