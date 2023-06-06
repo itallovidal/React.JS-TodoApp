@@ -1,8 +1,106 @@
 import React from 'react';
+import { Chart, registerables} from 'chart.js';
+Chart.register(...registerables);
+Chart.defaults.color = 'white';
+
+function chart01Config(){
+    const tasks = JSON.parse(localStorage.getItem('tasks'))
+
+    if(tasks !== null){
+        const completed = tasks.filter((task)=>{
+            return task.completed === true
+        })
+
+        const pending = tasks.filter((task)=>{
+            return task.completed === false
+        })
 
 
+        const ctx = document.getElementById('myChart');
 
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Total', 'Concluídas', 'Pendentes'],
+                datasets: [{
+                    label: '',
+
+                    data: [tasks.length, completed.length, pending.length],
+                    borderWidth: 1,
+                    backgroundColor: [
+                        '#F45050',
+                        'rgb(255,255,255)',
+                        'rgb(255,255,255)',
+                    ],
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    }
+}
+
+function chart02Config(){
+    const tasks = JSON.parse(localStorage.getItem('tasks'))
+
+    if(tasks !== null){
+        const homeTasks = tasks.filter((task)=>{
+            return task.taskCategory === 'Casa'
+        })
+
+        const studyTasks = tasks.filter((task)=>{
+            return task.taskCategory === 'Estudo'
+        })
+
+        const workTasks = tasks.filter((task)=>{
+            return task.taskCategory === 'Trabalho'
+        })
+        const funTasks = tasks.filter((task)=>{
+            return task.taskCategory === 'Lazer'
+        })
+
+        const ctx = document.getElementById('myChart2');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Casa', 'Estudo', 'Trabalho', 'Lazer'],
+                datasets: [{
+                    label: '',
+                    data: [
+                            homeTasks.length,
+                            studyTasks.length,
+                            workTasks.length,
+                            funTasks.length
+                    ],
+                    borderWidth: 1,
+
+                }]
+            },
+            options: {
+                colors: 'black',
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    }
+}
 function Home({changePage}) {
+    React.useEffect(()=>{
+        chart01Config()
+        chart02Config()
+    }, [])
+
+
     function getTasks(filter = null)
     {
         let el = []
@@ -36,8 +134,6 @@ function Home({changePage}) {
         }
     }
 
-
-
     return (
         <main id="container_home">
             <h1>Olá, {localStorage.getItem('userName')}
@@ -51,13 +147,15 @@ function Home({changePage}) {
                         { getTasks() }
                     </div>
                 </section>
-                <section>
-                    <p>temp</p>
+                <section id='container_chartPie'>
+                    <canvas  id="myChart2"></canvas>
                 </section>
             </article>
 
             <article id='container_02'>
-                temp
+                <section id='container_chartBar'>
+                    <canvas id="myChart"></canvas>
+                </section>
             </article>
 
             <article className='wrapper' id="container_03">
@@ -89,5 +187,7 @@ function Home({changePage}) {
         </main>
     )
 }
+
+
 
 export default Home;

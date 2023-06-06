@@ -22,6 +22,10 @@ $esp-m: 5%;
 $esp-p: 3%;
 $esp-pp: 1.5%;
 
+canvas{
+  cursor: pointer;
+}
+
 @mixin afterDetail($width: 8%, $height: 5px){
   position: absolute;
   content: '';

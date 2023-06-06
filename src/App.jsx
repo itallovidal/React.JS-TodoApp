@@ -6,6 +6,8 @@ import Profile from "./Profile.jsx";
 import Tasks from "./Tasks.jsx";
 import Home from "./home.jsx";
 
+
+
 function checkUser(){
   return localStorage.getItem('userName')
 }
@@ -15,7 +17,6 @@ function App() {
     const [categoryFilter, setCategoryFilter] = React.useState(null)
     const [searchFilter, setSearch] = React.useState(null)
     const [completedFilter, setCompletedFilter] = React.useState(null)
-
     const changePage = function (
         pag,
         category = null,
@@ -40,7 +41,6 @@ function App() {
         <Tasks filters={filters} setSearch={setSearch} />,
         <Home changePage={changePage}/>
     ]
-
 
     React.useEffect(()=>{
         if(checkUser() !== null){

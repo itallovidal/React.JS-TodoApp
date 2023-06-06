@@ -1,3 +1,7 @@
+canvas {
+  cursor: pointer;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -596,6 +600,22 @@ aside nav section:nth-child(-n+4):after {
 
 #container_01 #container_lastTasks {
   width: 60%;
+}
+#container_01 #container_chartPie {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  max-height: 380px;
+}
+
+#container_02 {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+#container_02 #container_chartBar {
+  width: 50%;
+  max-height: 500px;
 }
 
 #container_HomeTasks,
