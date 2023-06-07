@@ -211,7 +211,7 @@ aside nav section:nth-child(-n+4):after {
     width: 100%;
   }
 }
-@media (max-width: 380px) {
+@media (max-width: 400px) {
   #container_welcome {
     height: 45% !important;
   }
