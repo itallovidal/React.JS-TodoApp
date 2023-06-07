@@ -2,10 +2,37 @@
 
 #container_newTask{
     @include contentConfig;
+    @media (max-width: 500px) {
+        width: 90%;
+        margin-inline: auto;
 
+        h1{
+            font-size: $font-tamanho-g;
+        }
+    }
     section{
         width: 60%;
         min-width: 500px;
+
+        @media (max-width: 500px) {
+            min-width: 0;
+            width: 100%;
+
+            #taskName{
+                font-size: $font-tamanho-p;
+                padding-block: $esp-m;
+                width: 100%;
+            }
+            div{
+                flex-wrap: wrap;
+
+                #customData, label{
+                    width: 49%;
+                    margin-bottom: $esp-m;
+                    padding-block: $esp-m;
+                }
+            }
+        }
 
         h2{
             font-weight: 400;
@@ -67,6 +94,13 @@
         color: white;
         background-color: $cor-1;
         border: 2px solid $cor-3;
+
+        @media (max-width: 500px){
+            width: 100%;
+            min-width: 0;
+            font-size: $font-tamanho-p;
+            padding-block: $esp-m;
+        }
     }
 
     #btn_addTask:hover{

@@ -44,7 +44,7 @@ function App() {
 
     React.useEffect(()=>{
         if(checkUser() !== null){
-            setState(4)
+            setState(3)
         }
         else{
             setState(0)

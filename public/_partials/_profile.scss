@@ -3,13 +3,37 @@
 #container_profile{
   @include contentConfig;
 
+  @media (max-width: 500px){
+    width: 90%;
+    margin-inline: auto;
+    min-width: 0;
+    font-size: $font-tamanho-p;
+  }
+
+
   button{
     width: auto;
     height: auto;
+    @media (max-width: 500px){
+      padding-block: $esp-m;
+    }
   }
 
   #userName{
     margin-bottom: $esp-pp !important;
+
+    @media (max-width: 500px){
+      width: 90%;
+      font-size: $font-tamanho-p;
+      padding-block: $esp-m;
+      margin-top: $esp-m;
+    }
+  }
+
+  @media (max-width: 500px){
+    #container_newName > *{
+      margin-bottom: $esp-m !important;
+    }
   }
 
   #container_newName{
@@ -17,6 +41,8 @@
     position: relative;
     margin-bottom: $esp-p;
     padding-bottom: $esp-p;
+
+
   }
 
   #container_newName:after{

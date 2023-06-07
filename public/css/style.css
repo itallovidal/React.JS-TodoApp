@@ -2,11 +2,6 @@ canvas {
   cursor: pointer;
 }
 
-@media (max-width: 1050px) {
-  * {
-    display: none !important;
-  }
-}
 * {
   box-sizing: border-box;
   padding: 0;
@@ -15,8 +10,7 @@ canvas {
 }
 
 body {
-  height: 100svh;
-  overflow: hidden;
+  min-height: 100svh;
   margin: 0;
   background-color: #222222;
 }
@@ -26,6 +20,14 @@ body {
   display: flex;
 }
 
+@media (max-width: 500px) {
+  :root {
+    font-size: 13px;
+  }
+  #root {
+    display: block;
+  }
+}
 input, textarea {
   font-family: "Lato", sans-serif;
   padding: 1.5% 3%;
@@ -72,8 +74,62 @@ input, textarea {
     opacity: 1;
   }
 }
+@media (max-width: 500px) {
+  aside {
+    height: fit-content !important;
+    width: 100% !important;
+  }
+  aside #container_mobile {
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 5%;
+    width: 100%;
+    position: fixed;
+    background-color: white;
+    z-index: 4;
+    top: 0;
+    padding-block: 5%;
+  }
+  aside #container_mobile h1 {
+    margin-block: 0;
+  }
+  aside #container_mobile button {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+  }
+  aside nav {
+    z-index: 5;
+    position: fixed;
+    left: -100%;
+    top: 0;
+    width: 90%;
+    padding-left: 5%;
+    transition: 500ms;
+    height: 100%;
+  }
+  aside nav section button {
+    padding-block: 3% !important;
+  }
+  aside nav #btn-closeNav {
+    position: absolute;
+    font-size: 2rem;
+    top: -70%;
+    width: fit-content;
+    transition: 500ms;
+    right: 24%;
+    opacity: 0;
+  }
+  aside .showBtnClose {
+    opacity: 1 !important;
+  }
+  aside .showNav {
+    box-shadow: 50px 0 0 rgba(0, 0, 0, 0.32);
+    left: 0;
+  }
+}
 aside {
-  background: #F0F0F0;
   width: 25%;
   padding: 1rem 3%;
   display: flex;
@@ -81,8 +137,17 @@ aside {
   align-items: center;
   height: 100%;
 }
+@media (min-width: 500px) {
+  aside #container_mobile {
+    display: none;
+  }
+  aside #btn-closeNav {
+    display: none;
+  }
+}
 aside nav {
   opacity: 0;
+  background: #F0F0F0;
 }
 aside nav h1 {
   font-family: "Big Shoulders Display", cursive;
@@ -193,6 +258,12 @@ aside nav section:nth-child(-n+4):after {
   overflow-y: scroll;
   width: 75%;
 }
+@media (max-width: 500px) {
+  #container_newTask {
+    width: 100%;
+    margin-top: 15%;
+  }
+}
 #container_newTask h1 {
   font-size: 6rem;
   position: relative;
@@ -208,9 +279,37 @@ aside nav section:nth-child(-n+4):after {
   bottom: 0;
   left: 0;
 }
+@media (max-width: 500px) {
+  #container_newTask {
+    width: 90%;
+    margin-inline: auto;
+  }
+  #container_newTask h1 {
+    font-size: 3rem;
+  }
+}
 #container_newTask section {
   width: 60%;
   min-width: 500px;
+}
+@media (max-width: 500px) {
+  #container_newTask section {
+    min-width: 0;
+    width: 100%;
+  }
+  #container_newTask section #taskName {
+    font-size: 1.5rem;
+    padding-block: 5%;
+    width: 100%;
+  }
+  #container_newTask section div {
+    flex-wrap: wrap;
+  }
+  #container_newTask section div #customData, #container_newTask section div label {
+    width: 49%;
+    margin-bottom: 5%;
+    padding-block: 5%;
+  }
 }
 #container_newTask section h2 {
   font-weight: 400;
@@ -262,6 +361,14 @@ aside nav section:nth-child(-n+4):after {
   background-color: #222222;
   border: 2px solid #F45050;
 }
+@media (max-width: 500px) {
+  #container_newTask #btn_addTask {
+    width: 100%;
+    min-width: 0;
+    font-size: 1.5rem;
+    padding-block: 5%;
+  }
+}
 #container_newTask #btn_addTask:hover {
   background-color: #F45050;
 }
@@ -290,6 +397,12 @@ aside nav section:nth-child(-n+4):after {
   overflow-y: scroll;
   width: 75%;
 }
+@media (max-width: 500px) {
+  #container_profile {
+    width: 100%;
+    margin-top: 15%;
+  }
+}
 #container_profile h1 {
   font-size: 6rem;
   position: relative;
@@ -305,12 +418,38 @@ aside nav section:nth-child(-n+4):after {
   bottom: 0;
   left: 0;
 }
+@media (max-width: 500px) {
+  #container_profile {
+    width: 90%;
+    margin-inline: auto;
+    min-width: 0;
+    font-size: 1.5rem;
+  }
+}
 #container_profile button {
   width: auto;
   height: auto;
 }
+@media (max-width: 500px) {
+  #container_profile button {
+    padding-block: 5%;
+  }
+}
 #container_profile #userName {
   margin-bottom: 1.5% !important;
+}
+@media (max-width: 500px) {
+  #container_profile #userName {
+    width: 90%;
+    font-size: 1.5rem;
+    padding-block: 5%;
+    margin-top: 5%;
+  }
+}
+@media (max-width: 500px) {
+  #container_profile #container_newName > * {
+    margin-bottom: 5% !important;
+  }
 }
 #container_profile #container_newName {
   margin-top: 3%;
@@ -339,6 +478,12 @@ aside nav section:nth-child(-n+4):after {
   overflow-y: scroll;
   width: 75%;
 }
+@media (max-width: 500px) {
+  #container_tasks {
+    width: 100%;
+    margin-top: 15%;
+  }
+}
 #container_tasks h1 {
   font-size: 6rem;
   position: relative;
@@ -354,12 +499,24 @@ aside nav section:nth-child(-n+4):after {
   bottom: 0;
   left: 0;
 }
+@media (max-width: 500px) {
+  #container_tasks {
+    width: 90%;
+    margin-inline: auto;
+  }
+}
 #container_tasks #container_filter {
   display: flex;
   width: 60%;
   justify-content: space-between;
   align-items: center;
   height: fit-content;
+}
+@media (max-width: 500px) {
+  #container_tasks #container_filter {
+    width: 100%;
+    margin-inline: auto;
+  }
 }
 #container_tasks #container_filter p {
   margin-block: 0;
@@ -373,6 +530,12 @@ aside nav section:nth-child(-n+4):after {
   width: 100%;
   border-radius: 5px;
   margin-bottom: 0 !important;
+}
+@media (max-width: 500px) {
+  #container_tasks #container_filter div #searchBar {
+    margin-bottom: 5%;
+    padding-block: 5%;
+  }
 }
 #container_tasks #container_filter div #searchBar:hover {
   background-color: white;
@@ -433,10 +596,17 @@ aside nav section:nth-child(-n+4):after {
   width: 45%;
   text-align: center;
 }
+@media (max-width: 500px) {
+  #container_tasks #container_taskResult .task {
+    width: 100%;
+    margin-bottom: 5%;
+    padding-block: 5%;
+  }
+}
 #container_tasks #container_taskResult .task p {
   font-size: 1rem;
   line-height: 1.5;
-  max-height: 4.5rem;
+  max-height: 5.1rem;
   overflow-y: hidden;
   position: relative;
   transition: 1000ms cubic-bezier(0.01, 0.45, 0.34, 1.05);
@@ -453,7 +623,7 @@ aside nav section:nth-child(-n+4):after {
 }
 #container_tasks #container_taskResult .task .changeHeight {
   transition: 1000ms cubic-bezier(0.05, 0.59, 0.48, 0.46);
-  max-height: calc(var(--tam-p) * 1.5 * 1px);
+  max-height: calc(var(--tam-p) * 1.7 * 1px);
 }
 #container_tasks #container_taskResult .task .changeHeight:after {
   background-image: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
@@ -490,6 +660,12 @@ aside nav section:nth-child(-n+4):after {
   color: white;
   padding: 0;
 }
+@media (max-width: 500px) {
+  #container_home {
+    width: 100%;
+    margin-top: 15%;
+  }
+}
 #container_home h1 {
   font-size: 6rem;
   position: relative;
@@ -508,6 +684,11 @@ aside nav section:nth-child(-n+4):after {
 #container_home h1, #container_home article {
   padding-inline: 5%;
 }
+@media (max-width: 500px) {
+  #container_home h1, #container_home article {
+    margin-bottom: 12%;
+  }
+}
 #container_home h1:after {
   left: 5%;
 }
@@ -519,6 +700,12 @@ aside nav section:nth-child(-n+4):after {
   display: flex;
   flex-wrap: wrap;
   gap: 3%;
+}
+@media (max-width: 500px) {
+  #container_home .container_tasks {
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+  }
 }
 #container_home #container_01,
 #container_home #container_03,
@@ -556,6 +743,15 @@ aside nav section:nth-child(-n+4):after {
   opacity: 0;
   animation: fadeIn 800ms forwards;
   border-radius: 10px;
+}
+@media (max-width: 500px) {
+  #container_home #container_lastTasks .container_tasks .task,
+  #container_home #container_HomeTasks .container_tasks .task,
+  #container_home #container_JobTasks .container_tasks .task,
+  #container_home #container_StudyTasks .container_tasks .task {
+    min-width: 170px;
+    padding: 5% !important;
+  }
 }
 #container_home #container_lastTasks .container_tasks .task .footer,
 #container_home #container_HomeTasks .container_tasks .task .footer,
@@ -603,14 +799,29 @@ aside nav section:nth-child(-n+4):after {
   text-align: center;
 }
 
+@media (max-width: 500px) {
+  #container_01 {
+    flex-direction: column-reverse;
+  }
+}
 #container_01 #container_lastTasks {
   width: 60%;
+}
+@media (max-width: 500px) {
+  #container_01 #container_lastTasks {
+    width: 100%;
+  }
 }
 #container_01 #container_chartPie {
   width: 40%;
   display: flex;
   justify-content: center;
   max-height: 380px;
+}
+@media (max-width: 500px) {
+  #container_01 #container_chartPie {
+    width: 100%;
+  }
 }
 
 #container_02 {
@@ -622,6 +833,11 @@ aside nav section:nth-child(-n+4):after {
   width: 50%;
   max-height: 500px;
 }
+@media (max-width: 500px) {
+  #container_02 #container_chartBar {
+    width: 100%;
+  }
+}
 
 #container_HomeTasks,
 #container_JobTasks,
@@ -632,6 +848,11 @@ aside nav section:nth-child(-n+4):after {
 #container_04 {
   background-color: #434242;
 }
+@media (max-width: 500px) {
+  #container_04 {
+    padding-block: 5%;
+  }
+}
 
 .wrapper .Lazer, .wrapper .Casa,
 .wrapper .Trabalho, .wrapper .Estudo {
@@ -641,6 +862,13 @@ aside nav section:nth-child(-n+4):after {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 500px) {
+  .wrapper .Lazer, .wrapper .Casa,
+  .wrapper .Trabalho, .wrapper .Estudo {
+    width: 60% !important;
+    min-height: auto;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

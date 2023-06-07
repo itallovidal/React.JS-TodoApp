@@ -1,12 +1,39 @@
 import React from 'react';
 
+
+
 const Aside = ({changePage})=> {
+    const [navbarStatus, setNavbarStatus] = React.useState(false)
+
+    React.useEffect(()=>{
+        const btns = document.querySelectorAll('button')
+        btns.forEach((btn)=>{
+            btn.addEventListener('click', ()=>{
+                console.log('fire')
+                const nav = document.querySelector('nav')
+                if(nav.classList.contains('showNav')){
+                    nav.classList.remove('showNav')
+                }
+            })
+        })
+    }, [])
+
     return (
         <aside>
-            <nav className='fade-in'>
-            <h1> {'ToDo'} </h1>
+            <div id='container_mobile'>
+                <button onClick={()=> setNavbarStatus(!navbarStatus)}>
+                    <i className="fa-solid fa-bars"></i>
+                </button>
+
+                <h1>{'ToDo'}</h1>
+            </div>
+            <nav className={`fade-in ${navbarStatus === true ? 'showNav' : null}`}>
+                <h1> {'ToDo'} </h1>
 
                 <section>
+                    <button className={navbarStatus === true ? 'showBtnClose' : null} onClick={()=> setNavbarStatus(!navbarStatus)} id='btn-closeNav'>
+                        <i className="fa-solid fa-xmark"></i>
+                    </button>
                     <button onClick={()=> changePage(1)}>Criar Tarefa <i className="fa-solid fa-plus"></i></button>
                     <button onClick={()=>{
                         changePage(4, 'Estudo')

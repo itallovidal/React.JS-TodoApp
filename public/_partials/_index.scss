@@ -27,11 +27,11 @@ canvas{
 }
 
 
-@media (max-width: 1050px){
-  *{
-    display: none !important;
-  }
-}
+//@media (max-width: 1050px){
+//  *{
+//    display: none !important;
+//  }
+//}
 
 @mixin afterDetail($width: 8%, $height: 5px){
   position: absolute;
@@ -51,8 +51,8 @@ canvas{
 }
 
 body{
-  height: 100svh;
-  overflow: hidden;
+  min-height: 100svh;
+  //overflow: hidden;
   margin: 0;
   background-color: $cor-1;
 }
@@ -60,6 +60,16 @@ body{
 #root{
   height: 100vh;
   display: flex;
+}
+
+@media (max-width: 500px){
+  :root{
+    font-size: 13px;
+  }
+
+ #root{
+   display: block;
+ }
 }
 
 @mixin contentConfig{
@@ -72,6 +82,10 @@ body{
   opacity: 0;
   overflow-y: scroll;
   width: 75%;
+  @media (max-width: 500px){
+    width: 100%;
+    margin-top: $esp-xxg;
+  }
 
   h1{
     font-size: $font-tamanho-xxg;
