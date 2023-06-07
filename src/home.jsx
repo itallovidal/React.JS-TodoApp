@@ -130,7 +130,7 @@ function Home({changePage}) {
             return el
         }
         else{
-            return <p>Sem Tarefas.</p>
+            return <p style={{fontSize: '16px'}}> <strong style={{color: '#F45050'}}> Nenhuma tarefa encontrada.</strong> Adicione no painel de criação.</p>
         }
     }
 
@@ -140,50 +140,69 @@ function Home({changePage}) {
                 <p>O que temos para hoje?</p>
             </h1>
 
-            <article id="container_01">
-                <section id='container_lastTasks'>
-                    <h2>Últimas tarefas</h2>
-                    <div className='container_tasks'>
-                        { getTasks() }
-                    </div>
-                </section>
-                <section id='container_chartPie'>
-                    <canvas  id="myChart2"></canvas>
-                </section>
-            </article>
+            {(()=>{
+                if(JSON.parse(localStorage.getItem('tasks')) !== null){
+                    return(
+                        <>
+                            <article id="container_01">
+                                <section id='container_lastTasks'>
+                                    <h2>Últimas tarefas</h2>
+                                    <div className='container_tasks'>
+                                        { getTasks() }
+                                    </div>
+                                </section>
+                                <section id='container_chartPie'>
+                                    <canvas  id="myChart2"></canvas>
+                                </section>
+                            </article>
+                            <article id='container_02'>
+                                <section id='container_chartBar'>
+                                    <canvas id="myChart"></canvas>
+                                </section>
+                            </article>
+                            <article className='wrapper' id="container_03">
+                                <section id='container_HomeTasks'>
+                                    <h2>Tarefas de Casa</h2>
+                                    <div className='container_tasks'>
+                                        { getTasks('Casa') }
+                                    </div>
+                                </section>
+                            </article>
+                            <article className='wrapper' id="container_04">
+                                <section id='container_JobTasks'>
+                                    <h2>Tarefas de Trabalho</h2>
+                                    <div className='container_tasks'>
+                                        { getTasks('Lazer') }
+                                    </div>
+                                </section>
+                            </article>
+                            <article className='wrapper' id="container_05">
+                                <section id='container_StudyTasks'>
+                                    <h2>Tarefas de Estudo</h2>
+                                    <div className='container_tasks'>
+                                        { getTasks('Estudo') }
+                                    </div>
+                                </section>
+                            </article>
 
-            <article id='container_02'>
-                <section id='container_chartBar'>
-                    <canvas id="myChart"></canvas>
-                </section>
-            </article>
+                        </>
+                    )
+                }
+                else{
+                    return (
+                        <div id='container_noTasks'>
+                            <h2> Infelizmente nada, não é?</h2>
+                            <p>Não se preocupe, você pode adicionar uma no
+                                <strong style={{color: '#F45050'}}> painel de criação.</strong> </p>
+                        </div>
 
-            <article className='wrapper' id="container_03">
-                <section id='container_HomeTasks'>
-                    <h2>Tarefas de Casa</h2>
-                    <div className='container_tasks'>
-                        { getTasks('Casa') }
-                    </div>
-                </section>
-            </article>
+                    )
+                }
 
-            <article className='wrapper' id="container_04">
-                <section id='container_JobTasks'>
-                    <h2>Tarefas de Trabalho</h2>
-                    <div className='container_tasks'>
-                        { getTasks('Lazer') }
-                    </div>
-                </section>
-            </article>
 
-            <article className='wrapper' id="container_05">
-                <section id='container_StudyTasks'>
-                    <h2>Tarefas de Estudo</h2>
-                    <div className='container_tasks'>
-                        { getTasks('Estudo') }
-                    </div>
-                </section>
-            </article>
+
+            })()}
+
         </main>
     )
 }

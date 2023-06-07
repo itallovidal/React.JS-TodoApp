@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
-function deleteTasks(filter = null){
-    if(filter === null){
+function deleteTasks(filter, setMsg){
+    if(filter === null && localStorage.getItem('tasks')){
         localStorage.removeItem('tasks')
+        setMsg(true)
+
     }
-    else{
+    else if(localStorage.getItem('tasks')){
         let tasks = JSON.parse(localStorage.getItem('tasks'))
         let uncompleted = tasks.filter((task)=>{
             return task.completed === false
@@ -12,10 +14,20 @@ function deleteTasks(filter = null){
 
         localStorage.removeItem('tasks')
         localStorage.setItem('tasks', JSON.stringify(uncompleted))
+        setMsg(true)
     }
 }
 
 const Profile = () =>{
+    const [msg, setMsg] = React.useState(false)
+
+    React.useEffect(()=>{
+        if(msg){
+            const containerMsg = document.querySelector('#container_msg')
+            containerMsg.addEventListener('animationend', ()=> containerMsg.remove())
+        }
+    },[msg])
+
     return (
         <main id='container_profile'>
             <h1>Conta</h1>
@@ -36,14 +48,16 @@ const Profile = () =>{
             <article>
                 <p>Apagar Todas as Tarefas</p>
                 <button onClick={()=>{
-                    deleteTasks()
+                    deleteTasks(null, setMsg)
                 }} className='btn'>Apagar</button>
 
                 <p>Apagar Tarefas Completadas</p>
                 <button onClick={()=>{
-                    deleteTasks(1)
+                    deleteTasks(1, setMsg)
                 }} className='btn'>Apagar</button>
             </article>
+
+            {msg && <span id='container_msg'>Ação concluída com sucesso!</span> }
         </main>
     )
 }

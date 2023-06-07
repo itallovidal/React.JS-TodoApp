@@ -21,7 +21,19 @@ function check(){
         }
 
     }else{
-        taskTime = taskTime.value
+        if(taskTime.value === '1 Dia'){
+            let currentDate = new Date();
+            currentDate.setDate(currentDate.getDate() + 1)
+            taskTime = `${currentDate.getDate()}/${currentDate.getMonth() + 1}`
+        }
+        else if(taskTime.value === '1 Semana'){
+            let currentDate = new Date();
+            currentDate.setDate(currentDate.getDate() + 7)
+            taskTime = `${currentDate.getDate()}/${currentDate.getMonth() + 1}`
+        }
+        else{
+            taskTime = taskTime.value
+        }
     }
 
     const taskCategory = document.querySelector('input[name=taskCategory]:checked').value
@@ -35,6 +47,7 @@ function check(){
 const NewTask = ({attPag}) => {
     const [customDate, setCustomDate] = React.useState(false)
     const [errorMsg, setErrorMsg] = React.useState('')
+
 
     function addTask(e){
         e.preventDefault()
@@ -58,7 +71,6 @@ const NewTask = ({attPag}) => {
 
     function resetDate(){
         const date = document.querySelector('input[name=taskTime]:checked')
-
         date !== null ? date.checked = false : null
         setCustomDate(true)
     }
@@ -77,16 +89,16 @@ const NewTask = ({attPag}) => {
                 <h3>Data Limite</h3>
 
                 <div>
-                    <input onChange={resetDate} name='taskTime' id='customData' type="date"/>
+                    <input value={customDate === false ? '' : null} onChange={resetDate} name='taskTime' id='customData' type="date"/>
 
-                    <input id='time1' name='taskTime' value='Hoje' type='radio' disabled={customDate}/>
-                    <label className={`btn ${customDate && 'disabledLabel'}`} htmlFor="time1">Hoje</label>
+                    <input id='time1' name='taskTime' value='Diariamente' type='radio' />
+                    <label onClick={()=>{setCustomDate(false)}} className={`btn ${customDate && 'disabledLabel'}`} htmlFor="time1">Diariamente</label>
 
-                    <input id='time2' name='taskTime' value='1 Dia' type='radio' disabled={customDate}/>
-                    <label className={`btn ${customDate && 'disabledLabel'}`} htmlFor="time2">1 Dia</label>
+                    <input id='time2' name='taskTime' value='1 Dia' type='radio' />
+                    <label onClick={()=>{setCustomDate(false)}} className={`btn ${customDate && 'disabledLabel'}`} htmlFor="time2">1 Dia</label>
 
-                    <input id='time3' name='taskTime' value='1 Semana' type='radio' disabled={customDate}/>
-                    <label className={`btn ${customDate && 'disabledLabel'}`} htmlFor="time3">1 Semana</label>
+                    <input id='time3' name='taskTime' value='1 Semana' type='radio'/>
+                    <label onClick={()=>{setCustomDate(false)}} className={`btn ${customDate && 'disabledLabel'}`} htmlFor="time3">1 Semana</label>
                 </div>
             </section>
 

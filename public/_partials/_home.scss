@@ -147,3 +147,12 @@
     }
   }
 }
+
+#container_noTasks{
+  padding: $esp-m;
+  color: white;
+
+  p{
+    font-size: $font-tamanho-pp;
+  }
+}

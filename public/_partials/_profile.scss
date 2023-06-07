@@ -49,5 +49,26 @@
     @include afterDetail();
   }
 
+  #container_msg{
+    margin-top: $esp-m;
+    background-color: white;
+    color: $cor-3;
+    padding: $esp-p $esp-pp;
+    border-radius: 8px;
+    width: fit-content;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: showMsg 2000ms forwards;
+  }
 }
 
+@keyframes showMsg {
+  50%{
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+    transform: translateY(0%);
+  }
+}

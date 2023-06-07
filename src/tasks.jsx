@@ -95,7 +95,12 @@ const Tasks = ({ filters, setSearch}) =>{
         )
     }
     else{
-        return <p> Ops, sem Tarefas. <br/> <br/> Adicione uma tarefa na aba de <strong style={{color: "#F45050"}}> criar tarefas  </strong>.</p>
+        return (
+            <div id='container_noTasks'>
+                <h1> Ops, sem Tarefas. </h1>
+                    <p>Adicione uma tarefa na aba de <strong style={{color: "#F45050"}}> criação de tarefas  </strong>.</p>
+            </div>
+        )
     }
 }
 

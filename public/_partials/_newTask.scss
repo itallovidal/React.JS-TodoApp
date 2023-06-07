@@ -11,7 +11,7 @@
         }
     }
     section{
-        width: 60%;
+        width: 70%;
         min-width: 500px;
 
         @media (max-width: 500px) {
@@ -88,7 +88,7 @@
     #btn_addTask{
         margin-block: $esp-p;
         padding: $esp-pp;
-        width: 60%;
+        width: 70%;
         height: auto;
         min-width: 500px;
         color: white;

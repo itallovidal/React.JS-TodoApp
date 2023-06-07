@@ -316,7 +316,7 @@ aside nav section:nth-child(-n+4):after {
   }
 }
 #container_newTask section {
-  width: 60%;
+  width: 70%;
   min-width: 500px;
 }
 @media (max-width: 500px) {
@@ -381,7 +381,7 @@ aside nav section:nth-child(-n+4):after {
 #container_newTask #btn_addTask {
   margin-block: 3%;
   padding: 1.5%;
-  width: 60%;
+  width: 70%;
   height: auto;
   min-width: 500px;
   color: white;
@@ -493,7 +493,28 @@ aside nav section:nth-child(-n+4):after {
   bottom: 0;
   left: 0;
 }
+#container_profile #container_msg {
+  margin-top: 5%;
+  background-color: white;
+  color: #F45050;
+  padding: 3% 1.5%;
+  border-radius: 8px;
+  width: fit-content;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: showMsg 2000ms forwards;
+}
 
+@keyframes showMsg {
+  50% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0%);
+  }
+}
 #container_tasks {
   overflow-x: hidden;
   animation: fadeIn 500ms forwards;
@@ -672,6 +693,11 @@ aside nav section:nth-child(-n+4):after {
 }
 #container_tasks #container_taskResult .task .rotate {
   transform: rotateY(150deg) rotateX(180deg);
+}
+
+#container_noTasks {
+  padding: 5%;
+  color: white;
 }
 
 #container_home {
@@ -896,6 +922,14 @@ aside nav section:nth-child(-n+4):after {
     width: 60% !important;
     min-height: auto;
   }
+}
+
+#container_noTasks {
+  padding: 5%;
+  color: white;
+}
+#container_noTasks p {
+  font-size: 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */
