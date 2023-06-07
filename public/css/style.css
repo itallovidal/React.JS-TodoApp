@@ -204,7 +204,7 @@ aside nav section:nth-child(-n+4):after {
 }
 @media (max-width: 500px) {
   #container_welcome {
-    height: 50% !important;
+    height: 65% !important;
     width: 100%;
   }
   #container_welcome article, #container_welcome picture, #container_welcome img {
