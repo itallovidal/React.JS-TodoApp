@@ -75,11 +75,11 @@ input, textarea {
   }
 }
 @media (max-width: 500px) {
-  aside {
+  #container_aside {
     height: fit-content !important;
     width: 100% !important;
   }
-  aside #container_mobile {
+  #container_aside #container_mobile {
     display: flex;
     justify-content: space-between;
     padding-inline: 5%;
@@ -90,16 +90,16 @@ input, textarea {
     top: 0;
     padding-block: 5%;
   }
-  aside #container_mobile h1 {
+  #container_aside #container_mobile h1 {
     margin-block: 0;
   }
-  aside #container_mobile button {
+  #container_aside #container_mobile button {
     background: none;
     border: none;
     outline: none;
     font-size: 2rem;
   }
-  aside nav {
+  #container_aside nav {
     z-index: 5;
     position: fixed;
     left: -100%;
@@ -109,10 +109,10 @@ input, textarea {
     transition: 500ms;
     height: 100%;
   }
-  aside nav section button {
+  #container_aside nav section button {
     padding-block: 3% !important;
   }
-  aside nav #btn-closeNav {
+  #container_aside nav #btn-closeNav {
     position: absolute;
     font-size: 2rem;
     top: -70%;
@@ -121,10 +121,10 @@ input, textarea {
     right: 24%;
     opacity: 0;
   }
-  aside .showBtnClose {
+  #container_aside .showBtnClose {
     opacity: 1 !important;
   }
-  aside .showNav {
+  #container_aside .showNav {
     box-shadow: 50px 0 0 rgba(0, 0, 0, 0.32);
     left: 0;
   }
@@ -138,6 +138,9 @@ aside {
   height: 100%;
 }
 @media (min-width: 500px) {
+  aside {
+    background-color: #F0F0F0;
+  }
   aside #container_mobile {
     display: none;
   }
@@ -186,12 +189,27 @@ aside nav section:nth-child(-n+4):after {
   left: 0;
 }
 
+@media (max-width: 500px) {
+  #root .mobileTransition {
+    transition: 499ms;
+    height: 72px !important;
+  }
+}
 #container_welcome {
   width: 60%;
   background-color: #F0F0F0;
   align-items: start;
   padding: 5%;
   transition: 500ms;
+}
+@media (max-width: 500px) {
+  #container_welcome {
+    height: 70% !important;
+    width: 100%;
+  }
+  #container_welcome article, #container_welcome picture, #container_welcome img {
+    width: 100%;
+  }
 }
 #container_welcome h1 {
   font-family: "Big Shoulders Display", cursive;
@@ -221,6 +239,15 @@ aside nav section:nth-child(-n+4):after {
   color: white;
   font-weight: 600;
   transition: 500ms;
+}
+@media (max-width: 500px) {
+  #container_login {
+    width: 100%;
+  }
+  #container_login input {
+    width: 60%;
+    padding-block: 3%;
+  }
 }
 #container_login h2 {
   margin-block: 0;

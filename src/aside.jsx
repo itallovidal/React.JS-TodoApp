@@ -19,7 +19,7 @@ const Aside = ({changePage})=> {
     }, [])
 
     return (
-        <aside>
+        <aside id='container_aside'>
             <div id='container_mobile'>
                 <button onClick={()=> setNavbarStatus(!navbarStatus)}>
                     <i className="fa-solid fa-bars"></i>

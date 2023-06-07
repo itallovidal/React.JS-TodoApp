@@ -16,8 +16,17 @@ const Welcome = ({attPag}) => {
             articles.forEach(article => article.classList.add('fade-out'))
             
             setTimeout(() => {
-                welcome.style.width = '25%'
-                login.style.width = '75%'
+                if(window.innerWidth > 500){
+                    welcome.style.width = '25%'
+                    login.style.width = '75%'
+                    console.log('desktop')
+                }
+                else{
+                    console.log('mobile')
+                    welcome.classList.add('mobileTransition')
+                    // login.style.width = '100%'
+                }
+
                 
                 setTimeout(()=>{
                     attPag(1)

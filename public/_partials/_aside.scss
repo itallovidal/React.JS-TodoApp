@@ -1,7 +1,7 @@
 @use '../_partials/_index' as *;
 
 @media (max-width: 500px) {
-  aside{
+  #container_aside{
     height: fit-content !important;
     width: 100% !important;
 
@@ -75,7 +75,10 @@ aside{
   align-items: center;
   height: 100%;
 
+
   @media (min-width: 500px) {
+    background-color: $cor-2;
+
     #container_mobile{
       display: none;
     }
