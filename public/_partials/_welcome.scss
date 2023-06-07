@@ -24,6 +24,13 @@
         }
     }
 
+    @media (max-width: 380px) {
+        height: 45% !important;
+        picture, img{
+            display: none;
+        }
+    }
+
     h1{
         font-family: $fonte-2;
         font-size: $font-tamanho-xgplus;

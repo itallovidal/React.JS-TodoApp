@@ -45,9 +45,11 @@ function check(){
 }
 
 const NewTask = ({attPag}) => {
+    const inputCustomDate = React.useRef()
     const [customDate, setCustomDate] = React.useState(false)
     const [errorMsg, setErrorMsg] = React.useState('')
 
+    console.log(inputCustomDate.current)
 
     function addTask(e){
         e.preventDefault()
@@ -75,6 +77,7 @@ const NewTask = ({attPag}) => {
         setCustomDate(true)
     }
 
+
     return (
         <form onSubmit={(e)=>addTask(e)} className='fade-in' id='container_newTask'>
             <h1>Adicionar Tarefa</h1>
@@ -89,7 +92,10 @@ const NewTask = ({attPag}) => {
                 <h3>Data Limite</h3>
 
                 <div>
-                    <input value={customDate === false ? '' : null} onChange={resetDate} name='taskTime' id='customData' type="date"/>
+                    <input ref={inputCustomDate} value={customDate === false ? '' : null} onChange={resetDate} name='taskTime' id='customData' type="date"/>
+                    <label onClick={()=>{
+                        inputCustomDate.current.showPicker()
+                    }} className={`btn`} htmlFor="customData">Personalizar</label>
 
                     <input id='time1' name='taskTime' value='Diariamente' type='radio' />
                     <label onClick={()=>{setCustomDate(false)}} className={`btn ${customDate && 'disabledLabel'}`} htmlFor="time1">Diariamente</label>

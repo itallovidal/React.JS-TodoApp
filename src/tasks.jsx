@@ -36,7 +36,7 @@ const Tasks = ({ filters, setSearch}) =>{
 
         if(searchFilter !== null){
             tasks = tasks.filter((task)=>{
-                return task.taskName === searchFilter
+                return task.taskName.toLowerCase().includes(searchFilter.toLowerCase())
             })
         }
 
@@ -46,26 +46,32 @@ const Tasks = ({ filters, setSearch}) =>{
             })
         }
 
-        return (
-            tasks.map((task, i)=>{
-                return <div key={i} className='task'>
-                    <h3> {task.taskName} </h3>
+        if(tasks.length !== 0){
+            return (
+                tasks.map((task, i)=>{
+                    return <div key={i} className='task'>
+                        <h3> {task.taskName} </h3>
 
-                    <p>{task.taskDesc} <br/> <br/> Data Limite:  <span style={{color: '#F45050', fontWeight: 'Bolder'}} className='taskLimitDate'> {task.taskTime}</span></p>
-                    <button onClick={(e)=>{
-                        changeTaskStatus(tasks, e.target)
-                        setTaskStatus(!taskStatus)
+                        <p>{task.taskDesc} <br/> <br/> Data Limite:  <span style={{color: '#F45050', fontWeight: 'Bolder'}} className='taskLimitDate'> {task.taskTime}</span></p>
+                        <button onClick={(e)=>{
+                            changeTaskStatus(tasks, e.target)
+                            setTaskStatus(!taskStatus)
 
-                    }}  className={`btn ${task.completed && 'completed fa-solid fa-circle-check'}`  }>
-                        {task.completed === true ? null : "Completar" }
-                    </button>
-                    <div className='footer'>
-                        <span>{task.taskCategory}</span>
-                        <button className='fas fa-chevron-down' onClick={(e)=>{openDesc(e)}}></button>
+                        }}  className={`btn ${task.completed && 'completed fa-solid fa-circle-check'}`  }>
+                            {task.completed === true ? null : "Completar" }
+                        </button>
+                        <div className='footer'>
+                            <span>{task.taskCategory}</span>
+                            <button className='fas fa-chevron-down' onClick={(e)=>{openDesc(e)}}></button>
+                        </div>
                     </div>
-                </div>
-            })
-        )
+                })
+            )
+        }
+        else{
+            return <p className={'fade-in'} style={{opacity: 0}}> Nenhuma Tarefa Encontrada.</p>
+        }
+
     }
 
     let filtro = filters.categoryFilter !== null ? filters.categoryFilter : 'Sem filtro'

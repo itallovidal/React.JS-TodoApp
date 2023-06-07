@@ -211,6 +211,14 @@ aside nav section:nth-child(-n+4):after {
     width: 100%;
   }
 }
+@media (max-width: 380px) {
+  #container_welcome {
+    height: 45% !important;
+  }
+  #container_welcome picture, #container_welcome img {
+    display: none;
+  }
+}
 #container_welcome h1 {
   font-family: "Big Shoulders Display", cursive;
   font-size: 12.5rem;
@@ -346,10 +354,6 @@ aside nav section:nth-child(-n+4):after {
   display: block;
   margin-bottom: 1.5%;
 }
-#container_newTask section #customData {
-  display: inline;
-  cursor: pointer;
-}
 #container_newTask section textarea {
   resize: none;
   width: 100%;
@@ -363,7 +367,7 @@ aside nav section:nth-child(-n+4):after {
   width: 100%;
   height: 100%;
 }
-#container_newTask section div input:not(#customData) {
+#container_newTask section div input {
   display: none;
 }
 #container_newTask section div label {
@@ -696,6 +700,7 @@ aside nav section:nth-child(-n+4):after {
 }
 
 #container_noTasks {
+  margin-top: 5%;
   padding: 5%;
   color: white;
 }
