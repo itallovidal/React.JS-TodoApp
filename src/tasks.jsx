@@ -3,7 +3,7 @@ import React from 'react';
 function openDesc(e){
     e.target.classList.toggle('rotate')
     const p = e.target.parentNode.previousSibling.previousSibling
-    p.parentNode.style.cssText = `--tam-p: ${p.innerText.length}`
+    p.parentNode.style.cssText = `--tam-p: ${p.innerText.length >= 50 ? p.innerText.length : 50}`
     p.classList.toggle('changeHeight')
 }
 
