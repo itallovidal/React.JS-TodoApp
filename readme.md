@@ -1,5 +1,5 @@
 <!-- Sobre o que é? -->
-# ToDo App
+# ToDo - Organizador de tarefas
 
 <!-- Linguagens Utilizadas -->
 ###  Linguagens Utilizadas
